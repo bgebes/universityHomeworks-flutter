@@ -21,9 +21,14 @@ Map<String, dynamic> getOperation() {
   stdout.write("Type an operation: ");
   List<String>? input = stdin.readLineSync()?.split(' ');
 
+  if (input![1] == '/' && input[2] == '0') {
+    print("Numbers can't divide to zero! Try again with another numbers!");
+    return getOperation();
+  }
+
   try {
     return {
-      'number1': double.parse(input![0]),
+      'number1': double.parse(input[0]),
       'operator': input[1],
       'number2': double.parse(input[2]),
     };

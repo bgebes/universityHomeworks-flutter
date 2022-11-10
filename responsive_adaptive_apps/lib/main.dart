@@ -11,7 +11,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Responsive and Adaptive Apps Demo',
+      title: 'Responsive and Adaptive Apps',
       home: Screen3(),
       debugShowCheckedModeBanner: false,
     );

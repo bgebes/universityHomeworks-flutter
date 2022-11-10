@@ -7,14 +7,11 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        // padding: const EdgeInsets.symmetric(horizontal: 5),
-        child: Column(
-          children: [
-            banner(context),
-            loginForm(context),
-          ],
-        ),
+      body: Column(
+        children: [
+          banner(context),
+          loginForm(context),
+        ],
       ),
     );
   }
@@ -43,7 +40,7 @@ Widget loginForm(BuildContext context) {
   );
 
   Widget inputs = Container(
-    padding: const EdgeInsets.symmetric(horizontal: 64, vertical: 36),
+    padding: const EdgeInsets.fromLTRB(64, 36, 64, 0),
     child: Column(
       children: [
         TextFormField(
@@ -80,7 +77,7 @@ Widget loginForm(BuildContext context) {
   );
 
   Widget askTextForgotPassword = const Padding(
-    padding: EdgeInsets.all(8.0),
+    padding: EdgeInsets.symmetric(vertical: 16),
     child: Text(
       'Forgot your password?',
       style: TextStyle(
@@ -89,21 +86,18 @@ Widget loginForm(BuildContext context) {
     ),
   );
 
-  Widget submitButton = Padding(
-    padding: const EdgeInsets.all(20),
-    child: Material(
-      color: Colors.transparent,
-      elevation: 20,
-      shadowColor: Theme.of(context).primaryColor,
-      child: ElevatedButton(
-        onPressed: () {},
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 15),
-          child: const Text(
-            'LOGIN',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
+  Widget submitButton = Material(
+    color: Colors.transparent,
+    elevation: 20,
+    shadowColor: Theme.of(context).primaryColor,
+    child: ElevatedButton(
+      onPressed: () {},
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 100),
+        child: const Text(
+          'LOGIN',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
           ),
         ),
       ),

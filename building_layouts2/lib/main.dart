@@ -1,4 +1,3 @@
-import 'package:building_layouts2/screens/login_screen.dart';
 import 'package:building_layouts2/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Application',
       theme: ThemeData(primaryColor: const Color(0xFF0e7cff)),
-      home: const LoginScreen(),
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

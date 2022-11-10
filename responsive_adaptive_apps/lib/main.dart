@@ -12,7 +12,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Responsive and Adaptive Apps',
-      home: Screen3(),
+      home: Screen1(),
       debugShowCheckedModeBanner: false,
     );
   }

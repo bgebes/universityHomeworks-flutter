@@ -10,7 +10,7 @@ class Screen2 extends StatefulWidget {
 
 class _Screen2 extends State<Screen2> {
   int number = 0;
-  bool detailsOpened = true;
+  bool detailsOpened = false;
 
   void changeNumber(int number) {
     setState(() {

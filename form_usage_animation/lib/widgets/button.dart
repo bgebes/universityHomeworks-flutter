@@ -6,12 +6,11 @@ class ButtonView extends StatefulWidget {
   const ButtonView({
     super.key,
     required this.formKey,
-    required this.email,
-    required this.password,
+    required this.navigate,
   });
 
   final GlobalKey<FormState> formKey;
-  final String email, password;
+  final Function navigate;
 
   @override
   State<ButtonView> createState() => _ButtonView();
@@ -22,16 +21,7 @@ class _ButtonView extends State<ButtonView> {
   Widget build(BuildContext context) {
     void actionEvent() {
       if (widget.formKey.currentState!.validate()) {
-        print("Email: " + widget.email);
-        print("Password: " + widget.password);
-
-        navigateOtherScreen(
-          context: context,
-          otherScreen: SecondScreen(
-            email: widget.email,
-            password: widget.password,
-          ),
-        );
+        widget.navigate();
       }
     }
 

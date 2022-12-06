@@ -6,14 +6,12 @@ class TextFormFieldView extends StatefulWidget {
     super.key,
     required this.tft,
     required this.validator,
-    required this.value,
     required this.onChangeValue,
   });
 
   final TextFieldType tft;
   final String? Function(String?)? validator;
   final Function(String?) onChangeValue;
-  String value;
 
   @override
   State<TextFormFieldView> createState() => _TextFormFieldView();

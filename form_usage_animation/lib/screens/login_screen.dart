@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:form_usage_animation/actions/actions.dart';
+import 'package:form_usage_animation/screens/second_screen.dart';
 import 'package:form_usage_animation/widgets/actions_row.dart';
 import 'package:form_usage_animation/widgets/bottom_row.dart';
 import 'package:form_usage_animation/widgets/form.dart';
@@ -13,21 +15,38 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreen extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  String email = "abc", password = "ac";
+  String? email;
+  String? password;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    void onChangeValue(value, newValue) {
+    void onChangeEmail(value) {
       setState(() {
-        value = newValue;
+        email = value;
       });
+    }
+
+    void onChangePassword(value) {
+      setState(() {
+        password = value;
+      });
+    }
+
+    void navigate() {
+      navigateOtherScreen(
+        context: context,
+        otherScreen: SecondScreen(
+          email: email ?? "",
+          password: password ?? "",
+        ),
+      );
     }
 
     return Scaffold(
       body: Center(
-        child: Column(
+        child: ListView(
           children: [
             const HeaderView(),
             Container(
@@ -37,21 +56,15 @@ class _LoginScreen extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   FormView(
-                      formKey: _formKey,
-                      email: email,
-                      password: password,
-                      onChangeValues: [
-                        (String? newValue) {
-                          onChangeValue(email, newValue);
-                        },
-                        (String? newValue) {
-                          onChangeValue(password, newValue);
-                        }
-                      ]),
+                    formKey: _formKey,
+                    onChangeValues: [
+                      onChangeEmail,
+                      onChangePassword,
+                    ],
+                  ),
                   ActionsRowView(
                     formKey: _formKey,
-                    email: email,
-                    password: password,
+                    navigate: navigate,
                   ),
                   const BottomRowView(),
                 ],

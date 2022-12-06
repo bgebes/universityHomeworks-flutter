@@ -8,17 +8,26 @@ class SecondScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var textStyle = const TextStyle(
+      fontSize: 24,
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Login Data"),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text("Email: $email"),
-          Text("Password: $password"),
-        ],
+      body: Center(
+        child: DefaultTextStyle.merge(
+          style: textStyle,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text("Email: $email"),
+              Text("Password: $password"),
+            ],
+          ),
+        ),
       ),
     );
   }

@@ -5,12 +5,11 @@ class ActionsRowView extends StatefulWidget {
   const ActionsRowView({
     super.key,
     required this.formKey,
-    required this.email,
-    required this.password,
+    required this.navigate,
   });
 
   final GlobalKey<FormState> formKey;
-  final String email, password;
+  final Function navigate;
 
   @override
   State<ActionsRowView> createState() => _ActionsRowView();
@@ -33,8 +32,7 @@ class _ActionsRowView extends State<ActionsRowView> {
         text,
         ButtonView(
           formKey: widget.formKey,
-          email: widget.email,
-          password: widget.password,
+          navigate: widget.navigate,
         ),
       ],
     );

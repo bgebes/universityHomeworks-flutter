@@ -6,12 +6,12 @@ class TextFormFieldView extends StatefulWidget {
     super.key,
     required this.tft,
     required this.validator,
-    required this.onChangeValue,
+    required this.controller,
   });
 
   final TextFieldType tft;
   final String? Function(String?)? validator;
-  final Function(String?) onChangeValue;
+  final TextEditingController controller;
 
   @override
   State<TextFormFieldView> createState() => _TextFormFieldView();
@@ -25,7 +25,7 @@ class _TextFormFieldView extends State<TextFormFieldView> {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
       child: TextFormField(
-        onChanged: widget.onChangeValue,
+        controller: widget.controller,
         obscureText: isTextFieldPassword,
         decoration: InputDecoration(
           label: Text(isTextFieldPassword ? "Password" : "Email"),

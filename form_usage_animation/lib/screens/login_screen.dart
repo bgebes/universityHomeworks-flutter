@@ -15,31 +15,19 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreen extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  String? email;
-  String? password;
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    void onChangeEmail(value) {
-      setState(() {
-        email = value;
-      });
-    }
-
-    void onChangePassword(value) {
-      setState(() {
-        password = value;
-      });
-    }
-
     void navigate() {
       navigateOtherScreen(
         context: context,
         otherScreen: SecondScreen(
-          email: email ?? "",
-          password: password ?? "",
+          email: _emailController.text,
+          password: _passwordController.text,
         ),
       );
     }
@@ -57,9 +45,9 @@ class _LoginScreen extends State<LoginScreen> {
                 children: [
                   FormView(
                     formKey: _formKey,
-                    onChangeValues: [
-                      onChangeEmail,
-                      onChangePassword,
+                    textFieldsControllers: [
+                      _emailController,
+                      _passwordController,
                     ],
                   ),
                   ActionsRowView(

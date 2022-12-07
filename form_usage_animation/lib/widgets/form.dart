@@ -6,11 +6,11 @@ class FormView extends StatefulWidget {
   const FormView({
     super.key,
     required this.formKey,
-    required this.onChangeValues,
+    required this.textFieldsControllers,
   });
 
   final GlobalKey<FormState> formKey;
-  final List<Function(String?)> onChangeValues;
+  final List<TextEditingController> textFieldsControllers;
 
   @override
   State<FormView> createState() => _FormView();
@@ -46,12 +46,12 @@ class _FormView extends State<FormView> {
           TextFormFieldView(
             tft: TextFieldType.email,
             validator: emailValidator,
-            onChangeValue: widget.onChangeValues[0],
+            controller: widget.textFieldsControllers[0],
           ),
           TextFormFieldView(
             tft: TextFieldType.password,
             validator: passwordValidator,
-            onChangeValue: widget.onChangeValues[1],
+            controller: widget.textFieldsControllers[1],
           ),
         ],
       ),
